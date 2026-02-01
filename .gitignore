@@ -1,0 +1,29 @@
+# Package lock files
+package-lock.json
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Dependency directories
+node_modules/
+
+# Build outputs
+wallet-backend/dist/
+wallet-frontend/dist/
+
+# Database and Uploads (Crucial for Privacy)
+wallet-backend/database.db
+wallet-backend/uploads/
+wallet-backend/database.db-journal
+wallet-backend/database.db-shm
+wallet-backend/database.db-wal
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
