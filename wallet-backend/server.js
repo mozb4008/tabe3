@@ -564,8 +564,8 @@ app.post("/api/login", loginLimiter, (req, res) => {
   res.cookie("token", token, {
     httpOnly: true,
     maxAge: 8 * 60 * 60 * 1000, // 8 hours
-    secure: process.env.NODE_ENV === "production", // Enable in production with HTTPS
-    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
   });
 
   console.log("Login success for:", username);
@@ -1598,9 +1598,7 @@ app.delete("/api/users/:id", auth(["admin"]), (req, res) => {
   db.prepare("DELETE FROM users WHERE id = ?").run(req.params.id);
   res.json({ message: "تم حذف المستخدم بنجاح" });
 });
-res.status(500).json({ message: "فشل التحديث: " + err.message });
-  }
-});
+
 
 // UPDATE USER PASSWORD (Admin)
 app.put("/api/users/:id/password", auth(["admin"]), (req, res) => {
