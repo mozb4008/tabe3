@@ -28,12 +28,14 @@ function Dashboard() {
   });
   const [loading, setLoading] = useState(true);
 
+  /* 
   if (user && user.role !== 'admin') {
     if (user.institution_id) {
       return <Navigate to={`/institutions/${user.institution_id}/services`} replace />;
     }
     return <Navigate to="/institutions" replace />;
   }
+  */
 
   useEffect(() => {
     setLoading(true);

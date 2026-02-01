@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const loc = useLocation();
 
     const menu = [
-        { name: "لوحة المعلومات", path: "/", icon: "📊", roles: ['admin'] },
+        { name: "لوحة المعلومات", path: "/", icon: "📊", roles: ['admin', 'entry', 'viewer'] },
         {
             name: "المؤسسات",
             path: (user?.role !== 'admin' && user?.institution_id) ? `/institutions/${user.institution_id}/services` : "/institutions",
